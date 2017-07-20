@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Space Invaders</title>
+		<style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+			#background {
+				z-index: -2;
+			}
+			#main {
+				z-index: -1;
+			}
+			#ship {
+				z-index: 0;
+			}
+			.fps {
+				position: absolute;
+				top: 380px;
+				left: 10px;
+			}
+			.score {
+				position: absolute;
+				top: 5px;
+				left: 480px;
+				color: #00fff5;
+				font-family: Helvetica, sans-serif;
+				cursor: default;
+			}
+			.game-over {
+				position: absolute;
+				top: 100px;
+				left: 210px;
+				color: #00ff2d;
+				font-family: Helvetica, sans-serif;
+				font-size: 30px;
+				cursor: default;
+				display: none;
+			}
+			.game-over span {
+				font-size: 30px;
+				cursor: pointer;
+				position: relative;
+				left: 50px;
+			}
+			.game-over span:hover {
+				color: #ff00f5;
+			}
+			.controls {
+				position: static;
+				top: 400px;
+				
+				border-color: black;
+				border-width: medium;
+				padding-bottom: 20px;
+				padding: 20px;
+				background: #4daec5;
+				float: right;
+			}
+			.left{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- The canvas for the panning background -->
+		<div class="backgroundImage" width="1000" height="760">
+		<canvas id="background" width="600" height="360">
+			Browser type unsupported
+		</canvas>
+		<!-- The canvas for all enemy ships and bullets -->
+		<canvas id="main" width="600" height="360">
+		</canvas>
+		<!-- The canvas the ship uses (can only move up
+         one forth the screen. -->
+		<canvas id="ship" width="600" height="360">
+		</canvas>
+	
+		<div class="fps">FPS: <span id="fps"></span></div>
+		<div class="score">SCORE: <span id="score"></span></div>
+		<div class="game-over" id="game-over">GAME OVER<p><span onclick="game.restart()">Restart</span></p></div>
+		<div class="controls" id="controls">
+		&nbsp;
+		<table><tr><td><u>CONTROLS:</u></td>&nbsp;<td></tr><tr><td><strong>Move: </strong></td><td class="left">&larr; &uarr; &rarr; &darr;</td></tr><tr><td><strong>Fire: </strong></td><td class="left">Space</td></tr><tr><td><strong>Normal Weapon: </strong></td><td class="left">1</td></tr><tr><td><strong>Clone Weapon:</strong></td><td class="left">2</td></tr><tr><td><strong>Fork Weapon :</strong></td><td class="left">3</td></tr></table></div>
+		
+		<script src="space_invaders.js"></script>
+	</body>
+</html>
